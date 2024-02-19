@@ -1,4 +1,4 @@
-# authentication_app
+# login_app
 
 A new Flutter module project.
 
