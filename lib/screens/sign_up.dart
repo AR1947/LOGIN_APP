@@ -142,6 +142,7 @@ class _Screen2State extends State<_Screen2Stateful> {
                         ),
                         borderRadius: BorderRadius.circular(15)
                     ),
+                    labelText: 'Email ID',
                   ),
                 ),
               ),
