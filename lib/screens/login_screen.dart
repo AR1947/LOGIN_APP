@@ -1,14 +1,21 @@
+import 'package:authentication_app/screens/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
-  runApp(const Screen1());
-}
 
-class Screen1 extends StatelessWidget {
-  const Screen1({Key? key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+    void switchtoSignupPage() {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Screen2()));
+    }
+
+    @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
@@ -25,7 +32,7 @@ class Screen1 extends StatelessWidget {
             children: [
               Text(
                 "Sign in to Continue",
-                style: GoogleFonts.akayaTelivigala(
+                style: GoogleFonts.openSans (
                   fontSize: 24,
                 ),
               ),
@@ -91,6 +98,7 @@ class Screen1 extends StatelessWidget {
                         ),
                         borderRadius: BorderRadius.circular(15)
                     ),
+                    labelText: 'Email ID',
                   ),
                 ),
               ),
@@ -114,7 +122,7 @@ class Screen1 extends StatelessWidget {
                 height: 40,
                 width: 359,
                 child: TextField(
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -125,8 +133,9 @@ class Screen1 extends StatelessWidget {
                           color: Colors.blue,
                           width: 2,
                         ),
-                        borderRadius: BorderRadius.circular(10)
+                        borderRadius: BorderRadius.circular(15)
                     ),
+                    labelText: 'Password',
                   ),
                 ),
               ),
@@ -137,12 +146,16 @@ class Screen1 extends StatelessWidget {
                 width: 356,
                 height: 44,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: switchtoSignupPage,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF2F80ED), // Background color
+                  ),
                   child: Text(
-                      'Sign IN',
-                    style: GoogleFonts.cambo(
-                      fontSize: 22,
+                      'SIGN IN',
+                    style: TextStyle(
+                        color: Colors.white,
                     ),
+
                   ),
                 ),
               ),
@@ -156,9 +169,9 @@ class Screen1 extends StatelessWidget {
           ),
           Image.asset(
             'assets/footer.png',
-            height: 192,
             width: double.infinity,
-            fit: BoxFit.fill,
+            height: 190,
+            fit: BoxFit.cover,
           ),
         ],
       ),
